@@ -57,6 +57,10 @@ func TestVoiceInTrunksCreate(t *testing.T) {
 
 	assert.Equal(t, "41b94706-325e-4704-a433-d65105758836", trunk.ID)
 
+	// Verify 2026-04-16 external_reference_id is deserialized from the fixture
+	require.NotNil(t, trunk.ExternalReferenceID)
+	assert.Equal(t, "crm-vit-new", *trunk.ExternalReferenceID)
+
 	assertRequestJSON(t, *capturedBodyPtr, "voice_in_trunks/create_request.json")
 }
 

@@ -28,7 +28,10 @@
       ],
       "force_symmetric_rtp": true,
       "rtp_ping": true,
-      "callback_url": null
+      "callback_url": null,
+      "external_reference_id": "crm-vot-0001",
+      "emergency_enable_all": false,
+      "rtp_timeout": 30
     },
     "relationships": {
       "default_did": {
@@ -187,6 +190,6 @@
     }
   ],
   "meta": {
-    "api_version": "2021-12-15"
+    "api_version": "2026-04-16"
   }
 }

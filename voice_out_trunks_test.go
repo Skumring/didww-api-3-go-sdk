@@ -52,6 +52,13 @@ func TestVoiceOutTrunksFindWithIncludedDids(t *testing.T) {
 	assert.True(t, trunk.ForceSymmetricRtp)
 	assert.True(t, trunk.RtpPing)
 
+	// Verify 2026-04-16 attributes are deserialized from the fixture
+	require.NotNil(t, trunk.ExternalReferenceID)
+	assert.Equal(t, "crm-vot-0001", *trunk.ExternalReferenceID)
+	assert.False(t, trunk.EmergencyEnableAll)
+	require.NotNil(t, trunk.RtpTimeout)
+	assert.Equal(t, 30, *trunk.RtpTimeout)
+
 	// Verify authentication_method
 	require.NotNil(t, trunk.AuthenticationMethod)
 	credAM, ok := trunk.AuthenticationMethod.(*authenticationmethod.CredentialsAndIp)
